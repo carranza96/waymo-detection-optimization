@@ -1,4 +1,6 @@
-### System requirements
+# Installation
+
+## System requirements
  * Python 3.6 | 3.7
  * Protobuf compiler >= 3.0
  * g++ 5 or higher.
@@ -6,11 +8,16 @@
  * CUDA® Toolkit 10.0 
  * cuDNN SDK (>= 7.4.1)
  
-### Python libraries
+## Python libraries
+The scripts are prepared to work for TensorFlow 1.15. All required python libraries can be installed executing the following command:
 ```bash
 pip install docs/requirements.txt
 ```
-#### TF Object Detection API
+
+## Submodules
+The two submodules in this repository require the additional installation steps that are detailed below
+
+### TF Object Detection API
 Install the modified fork provided in the models folder by executing the following commands:
 ```bash
 cd models/research
@@ -26,16 +33,18 @@ python -m pip install .
 python object_detection/builders/model_builder_tf1_test.py
 ```
 
-#### Waymo library
+### Waymo library
 ```bash
 pip3 install waymo-open-dataset-tf-1-15-0==1.2.0
 ```
 
 ```bash
-# Configure Bazel environment
+# Install Bazel environment
 cd waymo-open-dataset
 BAZEL_VERSION=0.28.0
 wget https://github.com/bazelbuild/bazel/releases/download/0.28.0/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 sudo bash bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
+
+# Configure .bazelrc
 ./configure.sh
 ```
