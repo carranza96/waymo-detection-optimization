@@ -1,3 +1,6 @@
 [submodule "models"]
 	path = models
 	url = https://github.com/carranza96/models/
+[submodule "waymo-open-dataset"]
+	path = waymo-open-dataset
+	url = https://github.com/carranza96/waymo-open-dataset
