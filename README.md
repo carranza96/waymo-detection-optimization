@@ -26,6 +26,17 @@ This project depends on several libraries and contains two submodules that have 
   
 Full details on the installation steps and system requirements can be found at [installation.md](https://github.com/carranza96/waymo-detection-optimization/blob/master/doc/installation.md)
 
+
+## Getting started
+The *scripts* folder provides ready-to-use shell scripts for many operations:
+ * [Convert Waymo dataset to the format required by the TF Object Detection API](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/convert_waymo_tfrecord.sh)
+ * [Training models](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/train_script.sh)
+ * [Exporting inference graphs](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/export_script.sh)
+ * [Infer predictions](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/inference_script.sh)
+ * [Calculating inference time](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/average_inference_time.sh)
+ * [Ensemble predictions](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/ensemble_predictions.sh)
+ * [Computing Waymo metrics](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/waymo_evaluation/detection_metrics.sh)
+
 ## Authors <a name="authors"></a>
 
 * **Pedro Lara-Benítez** - [LinkedIn](www.linkedin.com/in/pedrolarben)
