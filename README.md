@@ -29,7 +29,7 @@ Full details on the installation steps and system requirements can be found at [
 
 ## Getting started
 ### Scripts
-The *scripts* folder provides ready-to-use shell scripts for many operations:
+The [*scripts*](https://github.com/carranza96/waymo-detection-optimization/tree/master/src/scripts) folder provides ready-to-use shell scripts for many operations:
  * [Convert Waymo dataset to the format required by the TF Object Detection API](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/convert_waymo_tfrecord.sh)
  * [Training models](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/train_script.sh)
  * [Exporting inference graphs](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/export_script.sh)
