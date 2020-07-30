@@ -1,5 +1,5 @@
 import tensorflow as tf
-from utils_tf_record.read_dataset_utils import read_and_parse_sharded_dataset, parse_camera_tfrecord_example
+from src.utils.read_dataset import read_and_parse_sharded_dataset, parse_camera_tfrecord_example
 from absl import app
 from absl import flags
 from time import time
@@ -7,14 +7,14 @@ import numpy as np
 
 tf.enable_eager_execution()
 
-# FLAGS = flags.FLAGS
-# flags.DEFINE_string('inference_graph_path', 'saved_models/final_models/inference_models/default_anchors_500_256/frozen_inference_graph.pb',
-#                     'Path to the inference graph')
-# flags.DEFINE_string('dataset_file_pattern', "data/camera_lateral/training/*",
-#                     'TFRecord file containing ground truths and detections')
-# flags.DEFINE_string('metrics_file', 'data/time.csv', "Metrics csv file to write average inference time")
-# flags.DEFINE_integer('num_images', 1000, "Number of images to test")
-# tf.flags.DEFINE_integer('num_additional_channels', 0, 'Number of additional channels to use')
+FLAGS = flags.FLAGS
+flags.DEFINE_string('inference_graph_path', 'saved_models/optimized_faster_rcnn/frozen_inference_graph.pb',
+                    'Path to the inference graph')
+flags.DEFINE_string('dataset_file_pattern', "data/camera_data/training/*",
+                    'TFRecord file containing ground truths and detections')
+flags.DEFINE_string('metrics_file', None, "Metrics csv file to write average inference time")
+flags.DEFINE_integer('num_images', 1000, "Number of images to test")
+tf.flags.DEFINE_integer('num_additional_channels', 0, 'Number of additional channels to use')
 
 
 # Load the Tensorflow model into memory.
@@ -81,39 +81,33 @@ def run_inference_for_single_image(sess, detection_graph, image):
     return boxes, scores, classes, num_detections, avg_inf_time
 
 
-# def main(_):
+def main(_):
 
-detection_graph = load_detection_graph('saved_models/final_models/inference_models/default_anchors_500_256/frozen_inference_graph.pb')
-# detection_graph = load_detection_graph('saved_models/final_models/inference_models/measure_time/frozen_inference_graph.pb')
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-sess = tf.Session(graph=detection_graph, config=config)
+    detection_graph = load_detection_graph(FLAGS.inference_graph_path)
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    sess = tf.Session(graph=detection_graph, config=config)
 
-# dataset = read_and_parse_sharded_dataset(FLAGS.dataset_file_pattern,
-#                                          additional_channels=bool(FLAGS.num_additional_channels))
+    dataset = read_and_parse_sharded_dataset(FLAGS.dataset_file_pattern,
+                                             additional_channels=bool(FLAGS.num_additional_channels))
 
-# filename = "data/camera_lateral/training/lateral_training.record-00000-of-00798"
-filename = "data/camera_lateral/training/lateral_training.record-00000-of-00798"
-dataset = tf.data.TFRecordDataset(filename, compression_type='')
-dataset = dataset.map(lambda data: parse_camera_tfrecord_example(data, False))
+    inference_times = []
+    for i, d in enumerate(dataset):
+        image = read_encoded_image(d, 0)
 
+        # Perform the actual detection by running the model with the image as input
+        (boxes, scores, classes, num, avg_inf_time) = run_inference_for_single_image(sess, detection_graph, image)
+        inference_times.append(avg_inf_time)
+        if i == FLAGS.num_images:
+            break
 
-inference_times = []
-for i, d in enumerate(dataset):
-    image = read_encoded_image(d, 0)
+        avg_time = np.mean(inference_times[1:])
 
-    # Perform the actual detection by running the model with the image as input
-    (boxes, scores, classes, num, avg_inf_time) = run_inference_for_single_image(sess, detection_graph, image)
-    inference_times.append(avg_inf_time)
-    if i == 1000:
-        break
-
-    avg_time = np.mean(inference_times[1:])
-
-print("AVERAGE INFERENCE TIME:%.6f" % avg_time)
-# f = open(FLAGS.metrics_file, 'a')
-# f.write("INFERENCE TIME,%.6f" % avg_time)
+    print("AVERAGE INFERENCE TIME:%.6f" % avg_time)
+    if FLAGS.metrics_file:
+        f = open(FLAGS.metrics_file, 'a')
+        f.write("INFERENCE TIME,%.6f" % avg_time)
 
 
-# if __name__ == '__main__':
-#     app.run(main)
+if __name__ == '__main__':
+    app.run(main)
