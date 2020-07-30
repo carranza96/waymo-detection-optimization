@@ -28,6 +28,7 @@ Full details on the installation steps and system requirements can be found at [
 
 
 ## Getting started
+### Scripts
 The *scripts* folder provides ready-to-use shell scripts for many operations:
  * [Convert Waymo dataset to the format required by the TF Object Detection API](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/convert_waymo_tfrecord.sh)
  * [Training models](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/od_api/train_script.sh)
@@ -37,6 +38,8 @@ The *scripts* folder provides ready-to-use shell scripts for many operations:
  * [Ensemble predictions](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/ensemble_predictions.sh)
  * [Computing Waymo metrics](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/waymo_evaluation/detection_metrics.sh)
 
+### Example model
+An example model configuration in the file [pipeline.config](https://github.com/carranza96/waymo-detection-optimization/blob/master/saved_models/optimized_faster_rcnn/pipeline.config), using the proposed improvements: anchor optimization, spatial ROI features, and reduced focal loss
 ## Authors <a name="authors"></a>
 
 * **Pedro Lara-Benítez** - [LinkedIn](www.linkedin.com/in/pedrolarben)
