@@ -39,7 +39,7 @@ The *scripts* folder provides ready-to-use shell scripts for many operations:
  * [Computing Waymo metrics](https://github.com/carranza96/waymo-detection-optimization/blob/master/src/scripts/waymo_evaluation/detection_metrics.sh)
 
 ### Example model
-An example model configuration in the file [pipeline.config](https://github.com/carranza96/waymo-detection-optimization/blob/master/saved_models/optimized_faster_rcnn/pipeline.config), using the proposed improvements: anchor optimization, spatial ROI features, and reduced focal loss
+An example Faster R-CNN model configuration is provided in the file [pipeline.config](https://github.com/carranza96/waymo-detection-optimization/blob/master/saved_models/optimized_faster_rcnn/pipeline.config), using the proposed improvements: anchor optimization, spatial ROI features, and reduced focal loss
 ## Authors <a name="authors"></a>
 
 * **Pedro Lara-Benítez** - [LinkedIn](www.linkedin.com/in/pedrolarben)
