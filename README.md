@@ -1,6 +1,6 @@
 # Waymo 2D Object Detection Optimization
 [![TensorFlow 1.15](https://img.shields.io/badge/TensorFlow-1.15-FF6F00?logo=tensorflow)](https://github.com/tensorflow/tensorflow/releases/tag/v1.15.0)
-[![Python 3.6](https://img.shields.io/badge/Python-3.6-3776AB)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.6](https://img.shields.io/badge/Python-3.6%20%7C%203.7-blue)](https://www.python.org/downloads/release/python-360/)
 [![Protobuf Compiler >= 3.0](https://img.shields.io/badge/ProtoBuf%20Compiler-%3E3.0-brightgreen)](https://grpc.io/docs/protoc-installation/#install-using-a-package-manager)
 
 Enhancing 2D object detection by optimizing anchor generation and addressing class imbalance. 
@@ -15,11 +15,16 @@ implementation, improving 2D detection over the Waymo Open Dataset:
 <br/><br/>  
 
 <p align="center">
-  <img width="1000" height="368" src="https://github.com/carranza96/waymo-detection-optimization/blob/master/doc/images/FasterRCNN.png">
+  <img width="800" height="300" src="https://github.com/carranza96/waymo-detection-optimization/blob/master/doc/images/FasterRCNN.png">
 </p>
 
 ## Installation
 
+This project depends on several libraries and contains two submodules that have to be installed:
+  * [TensorFlow Object Detection API](https://github.com/carranza96/models/): The *models* folder contains a forked repository with the proposed modifications
+  * [Waymo repository](https://github.com/carranza96/waymo-open-dataset/) for reading the dataset and computing metrics
+  
+Full details on the installation steps and system requirements can be found at [installation.md](https://github.com/carranza96/waymo-detection-optimization/blob/master/doc/installation.md)
 
 ## Authors <a name="authors"></a>
 
