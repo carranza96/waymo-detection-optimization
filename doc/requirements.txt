@@ -17,7 +17,7 @@ google-pasta==0.2.0
 grpcio==1.30.0
 h5py==2.10.0
 hdfs==2.5.8
-httplib2==0.17.4
+httplib2==0.18.0
 idna==2.10
 importlib-metadata==1.7.0
 Keras-Applications==1.0.8
@@ -49,7 +49,7 @@ scipy==1.5.1
 six==1.15.0
 tensorboard==1.15.0
 tensorflow-estimator==1.15.1
-tensorflow-gpu==1.15.0
+tensorflow-gpu==1.15.2
 termcolor==1.1.0
 tf-slim==1.1.0
 tqdm==4.48.0

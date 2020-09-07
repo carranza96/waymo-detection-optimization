@@ -51,7 +51,3 @@ An example Faster R-CNN model configuration is provided in the file [pipeline.co
 ## License<a name="license"></a>
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-
-
