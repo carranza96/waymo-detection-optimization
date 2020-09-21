@@ -87,7 +87,7 @@ echo "CALCULATING AVERAGE INFERENCE TIME"
 echo "------------------------------------"
 
 
-python scripts/objdet_api/average_inference_time.py \
+python tf2/average_inference_time_v2.py \
       --input_tfrecord_paths=${TF_RECORD_FILES} \
       --inference_graph_path=${INFERENCE_GRAPH} \
       --metrics_file=${METRICS_FILE} \
