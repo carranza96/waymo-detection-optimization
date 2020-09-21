@@ -37,7 +37,7 @@ protobuf==3.12.2
 pyarrow==0.17.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycocotools==2.0.1
+-e git+https://github.com/philippschw/cocoapi.git@d19c3dca49b0591b880c3457074e986e98617cb8#egg=pycocotools&subdirectory=PythonAPI
 pydot==1.4.1
 pymongo==3.10.1
 pyparsing==2.4.7
