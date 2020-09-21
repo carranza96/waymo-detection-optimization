@@ -159,6 +159,8 @@ flags.DEFINE_string('side_input_names', None,
                     'the names of the side input tensors required by the model '
                     'assuming the names will be a comma-separated list of '
                     'strings. This flag is required if using side inputs.')
+tf.flags.DEFINE_integer('gpu_device', None, 'Select GPU device')
+tf.flags.DEFINE_integer('num_additional_channels', 0, 'Number of additional channels to use')
 tf.app.flags.mark_flag_as_required('pipeline_config_path')
 #tf.app.flags.mark_flag_as_required('trained_checkpoint_prefix')
 tf.app.flags.mark_flag_as_required('output_directory')

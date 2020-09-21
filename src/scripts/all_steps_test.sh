@@ -1,5 +1,5 @@
 # Parameters to be changed
-MODEL_NAME=aofinal_frcnn_500_256_extrafeat_1280_3
+MODEL_NAME=optimized_faster_rcnn
 GPU_DEVICE=0
 WRITE_GROUND_TRUTHS=False   # If false, predictions/ground_truths.bin must exist
 SPLIT=testing # Dataset split to infer detections

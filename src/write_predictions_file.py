@@ -1,9 +1,8 @@
 from waymo_open_dataset.protos import metrics_pb2
 from waymo_open_dataset import label_pb2
-from utils_tf_record.read_dataset_utils import parse_camera_tfrecord_example
+from src.utils.read_dataset import parse_camera_tfrecord_example, write_serialized_string
 from tqdm import tqdm
 import tensorflow as tf
-from utils_tf_record.read_dataset_utils import write_serialized_string
 import os
 from absl import app
 from absl import flags

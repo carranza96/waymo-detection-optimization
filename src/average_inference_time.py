@@ -4,6 +4,7 @@ from absl import app
 from absl import flags
 from time import time
 import numpy as np
+import os
 
 tf.enable_eager_execution()
 
@@ -14,6 +15,7 @@ flags.DEFINE_string('dataset_file_pattern', "data/camera_data/training/*",
                     'TFRecord file containing ground truths and detections')
 flags.DEFINE_string('metrics_file', None, "Metrics csv file to write average inference time")
 flags.DEFINE_integer('num_images', 1000, "Number of images to test")
+flags.DEFINE_integer('gpu_device', None, 'Select GPU device')
 tf.flags.DEFINE_integer('num_additional_channels', 0, 'Number of additional channels to use')
 
 
@@ -82,6 +84,8 @@ def run_inference_for_single_image(sess, detection_graph, image):
 
 
 def main(_):
+    if FLAGS.gpu_device:
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(FLAGS.gpu_device)
 
     detection_graph = load_detection_graph(FLAGS.inference_graph_path)
     config = tf.ConfigProto()
