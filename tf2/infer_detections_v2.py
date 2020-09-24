@@ -144,7 +144,7 @@ def main(_):
 
             t1 = time()
             detections = detect_fn(image_tensor)
-            print(i, time()-t1)
+            # print(i, time()-t1)
 
             tf_example = add_detections_to_example(raw_example, detections, FLAGS.discard_image_pixels)
 

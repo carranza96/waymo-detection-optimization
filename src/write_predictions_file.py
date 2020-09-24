@@ -1,6 +1,6 @@
 from waymo_open_dataset.protos import metrics_pb2
 from waymo_open_dataset import label_pb2
-from src.utils.read_dataset import parse_camera_tfrecord_example, write_serialized_string
+from utils.read_dataset import parse_camera_tfrecord_example, write_serialized_string
 from tqdm import tqdm
 import tensorflow as tf
 import os
@@ -12,7 +12,7 @@ Required to compute Waymo evaluation metrics locally
 """
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-tf.enable_eager_execution()
+tf.compat.v1.enable_eager_execution()
 
 FLAGS = flags.FLAGS
 flags.DEFINE_string('detections_file', "predictions/low_res/validation_detections.tfrecord",

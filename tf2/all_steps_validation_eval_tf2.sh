@@ -89,7 +89,7 @@ echo "------------------------------------"
 
 python tf2/average_inference_time_v2.py \
       --input_tfrecord_paths=${TF_RECORD_FILES} \
-      --inference_graph_path=${INFERENCE_GRAPH} \
+      --inference_graph=${INFERENCE_GRAPH} \
       --metrics_file=${METRICS_FILE} \
       --gpu_device=${GPU_DEVICE} \
       --num_additional_channels=${NUM_ADDITIONAL_CHANNELS} \
