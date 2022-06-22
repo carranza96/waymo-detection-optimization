@@ -27,7 +27,7 @@ lxml==4.5.2
 Markdown==3.2.2
 matplotlib==3.2.2
 mock==2.0.0
-numpy==1.19.0
+numpy==1.22.0
 oauth2client==3.0.0
 opt-einsum==3.2.1
 pandas==1.0.5
